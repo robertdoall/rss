@@ -1,21 +1,9 @@
-const http = require('http');
-const url = require('url');
 const fs = require('fs');
-const fse = require('fs-extra');
-const jsonfeedToRSS = require('jsonfeed-to-rss')
-const readline = require('readline');
-// const RssFeedEmitter = require('rss-feed-emitter');
-// const feeder = new RssFeedEmitter();
+// const readline = require('readline');
 let Parser = require('rss-parser');
-const { Resolver } = require('dns');
-
-const xml2js = require('xml2js'); 
-
 var filePath = './file.json';
-var jsonFilePath = './feed.json';
 var rssFeedPath = './feed.rss';
 try { fs.unlinkSync(filePath); } catch (err) { console.log (err); }
-// try { fs.unlinkSync(jsonFilePath); } catch (err) { console.log (err); }
 try { fs.unlinkSync(rssFeedPath); } catch (err) { console.log (err); }
 
 var podList = [
@@ -34,13 +22,13 @@ var podList = [
 	'https://audio.nobodyhasthe.biz/api/v1/channels/therealsmokepit/rss',
 	'https://audio.nobodyhasthe.biz/api/v1/channels/thegamerword/rss',
 	'https://odysee.com/$/rss/@FizeekFriday:d', // odysee files are too big.... YIKES
-	'https://feeds.feedburner.com/archive/littlewarspodcast', // timeout 60 seconds
+	'https://feeds.feedburner.com/archive/littlewarspodcast',
 	'https://anchor.fm/s/3f92428c/podcast/rss', // daily decade
 	'https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss',
 	'https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss'
 ];
 
-/*TBD
+/*TBD reading from a file vs an array
 var ffeeds = [];
 async function processLineByLine() {
 	const fileStream = fs.createReadStream('feeds.txt');
@@ -58,7 +46,7 @@ async function processLineByLine() {
 */
   
 let parser = new Parser();
-var vals = [];
+var entries = [];
 var promises = podList.map(function(pod) {
 		return new Promise(async function(resolve, reject) {
 			var feed;
@@ -71,7 +59,7 @@ var promises = podList.map(function(pod) {
 					, err => {
 						if (err) { throw err; }
 			  	});
-		  		vals.push(item);
+		  		entries.push(item);
 					}
 				});
 				console.log('Processed; ' + feed.title);
@@ -88,8 +76,8 @@ function byDate(a, b) {
 Promise.all(promises)
 .then(function() { 
 	console.log('\nAll Fetched\nSorting\n');	
-	vals = vals.sort(byDate);
-	console.log('Newest Pod', vals[0]);
+	entries = entries.sort(byDate);
+	console.log('Newest Pod', entries[0]);
 
 	var jsonFeed = {
 		channel: {
@@ -116,7 +104,7 @@ Promise.all(promises)
 				 category: "INFO",
 				 subcategory: "Entertainment"
 			},
-			item: [vals]
+			item: [entries]
 		}
 	};
 
@@ -141,11 +129,11 @@ Promise.all(promises)
 		return xml;
 	}
 	
-	const xml = JSONtoXML(jsonFeed);
+	const entriesXML = JSONtoXML(jsonFeed);
 	fs.writeFileSync(rssFeedPath,
 		"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
 		"<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\"" +
 		"xmlns:media=\"http://search.yahoo.com/mrss/\">"	+
-		xml + "</rss>", "utf8");
+		entriesXML + "</rss>", "utf8");
 })
 .catch(console.error);
