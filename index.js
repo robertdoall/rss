@@ -104,7 +104,7 @@ Promise.all(promises)
 				 category: "INFO",
 				 subcategory: "Entertainment"
 			},
-			item: [entries]
+			items: [entries]
 		}
 	};
 
