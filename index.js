@@ -104,7 +104,7 @@ Promise.all(promises)
 				 category: "INFO",
 				 subcategory: "Entertainment"
 			},
-			items: [entries]
+			items: entries
 		}
 	};
 
@@ -133,7 +133,7 @@ Promise.all(promises)
 	fs.writeFileSync(rssFeedPath,
 		"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
 		"<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\" xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\"" +
-		"xmlns:media=\"http://search.yahoo.com/mrss/\">"	+
+		" xmlns:media=\"http://search.yahoo.com/mrss/\">"	+
 		entriesXML + "</rss>", "utf8");
 })
 .catch(console.error);
