@@ -33,8 +33,6 @@ const feedUrls = [
   "https://anchor.fm/s/3f92428c/podcast/rss", // daily decade
   "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
   "https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss",
-
-  // Add more feed URLs here
 ];
 
 async function run() {
@@ -65,23 +63,23 @@ async function run() {
 
   // Create new RSS feed
   var feed = new RSS({
-    title: "Combined Podcast RSS",
-    description: "This is a combined feed of multiple podcasts",
+    title: "Amerikaner Podcast RSS",
+    description: "This is the Amerikaner master list",
     feed_url: "http://example.com/rss.xml",
-    site_url: "http://example.com",
-    image_url: "http://example.com/logo.png",
+    site_url: "https://amerikaner.org/",
+    image_url: "https://i0.wp.com/amerikaner.org/wp-content/uploads/2022/08/contributions.png?fit=850%2C445&ssl=1",
     docs: "http://example.com/rss/docs.html",
-    managingEditor: "Editor Name",
-    webMaster: "Webmaster Name",
-    copyright: "2023 Your Name",
+    managingEditor: "Gordon Kahl",
+    webMaster: "Amerikaner",
+    copyright: "2023 Amerikaner",
     language: "en",
-    categories: ["Category 1", "Category 2"],
+    categories: ["Politics", "Comedy"],
     pubDate: new Date().toUTCString(),
     ttl: "60",
-    itunesAuthor: "Your Name",
-    itunesSubtitle: "A combined feed of multiple podcasts",
-    itunesSummary: "This is a combined feed of multiple podcasts",
-    itunesOwner: { name: "Your Name", email: "you@example.com" },
+    itunesAuthor: "Amerikaner",
+    itunesSubtitle: "Amerikaner Master List",
+    itunesSummary: "This is the Amerikaner master list",
+    itunesOwner: { name: "Gordon Kahl", email: "amerikanercontributions@proton.me" },
     itunesExplicit: false,
     itunesCategory: [
       {
