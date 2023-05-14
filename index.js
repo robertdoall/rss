@@ -67,7 +67,7 @@ async function run() {
     description: "This is the Amerikaner master list",
     feed_url: "http://example.com/rss.xml",
     site_url: "https://amerikaner.org/",
-    image_url: "https://i0.wp.com/amerikaner.org/wp-content/uploads/2022/08/contributions.png?fit=850%2C445&ssl=1",
+    image_url: "https://raw.githubusercontent.com/robertdoall/rss/master/amerikaner.jpg",
     docs: "http://example.com/rss/docs.html",
     managingEditor: "Gordon Kahl",
     webMaster: "Amerikaner",
