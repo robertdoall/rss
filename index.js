@@ -29,6 +29,7 @@ const feedUrls = [
   "https://audio.nobodyhasthe.biz/api/v1/channels/therealsmokepit/rss",
   "https://audio.nobodyhasthe.biz/api/v1/channels/thegamerword/rss",
   "https://odysee.com/$/rss/@FizeekFriday:d", // odysee files are too big.... YIKES
+  "https://odysee.com/$/rss/@LarryRidgeway:a", // Odysee files too big ...... yikes
   "https://feeds.feedburner.com/archive/littlewarspodcast",
   "https://anchor.fm/s/3f92428c/podcast/rss", // daily decade
   "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
@@ -59,7 +60,7 @@ async function run() {
 
   // Sort by date and take only the latest 100
   items.sort((a, b) => new Date(b.isoDate) - new Date(a.isoDate));
-  items = items.slice(0, 100);
+  items = items.slice(0, 120);
 
   // Create new RSS feed
   var feed = new RSS({
