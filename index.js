@@ -30,7 +30,7 @@ const feedUrls = [
   "https://audio.nobodyhasthe.biz/api/v1/channels/thegamerword/rss",
   "https://odysee.com/$/rss/@FizeekFriday:d", // odysee files are too big.... YIKES
   "https://odysee.com/$/rss/@LarryRidgeway:a", // Odysee files too big ...... yikes
-  "https://feeds.feedburner.com/archive/littlewarspodcast",
+  // "https://feeds.feedburner.com/archive/littlewarspodcast", // OFTEN TIMES OUT 
   "https://anchor.fm/s/3f92428c/podcast/rss", // daily decade
   "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
   "https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss",
@@ -53,9 +53,14 @@ async function run() {
   let items = [];
 
   // Combine all feed items
-  feeds.forEach((feed) => {
+  feeds.forEach((feed, idx) => {
     if (feed) {
-      items = items.concat(feed.items);
+      const podcastTitle = feed.title;
+      var feedItems = feed.items.map(item => ({
+          ...item,
+          title: `${podcastTitle}: ${item.title}`
+      }));
+      items = items.concat(feedItems);
     }
   });
 
