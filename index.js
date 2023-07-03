@@ -34,6 +34,7 @@ const feedUrls = [
   "https://anchor.fm/s/3f92428c/podcast/rss", // daily decade
   "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
   "https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss",
+  "https://anchor.fm/s/e321b8b0/podcast/rss" // pressure suit podcast 
 ];
 
 async function run() {
