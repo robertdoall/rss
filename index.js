@@ -23,7 +23,6 @@ const feedUrls = [
   "https://feeds.libsyn.com/325607/rss", // hate house
   "https://anchor.fm/s/9510ca1c/podcast/rss", // audio invictus            --nope
   "https://anchor.fm/s/b68e7bbc/podcast/rss", // the white corner          --nope
-  "https://fullhaus.libsyn.com/rss",
   "https://feeds.libsyn.com/106598/rss", // godcast
   "https://anchor.fm/s/b4c7199c/podcast/rss", // involution
   "https://audio.nobodyhasthe.biz/api/v1/channels/therealsmokepit/rss",
@@ -34,7 +33,7 @@ const feedUrls = [
   "https://anchor.fm/s/3f92428c/podcast/rss", // daily decade
   "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
   "https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss",
-  "https://anchor.fm/s/e321b8b0/podcast/rss" // pressure suit podcast 
+  "https://anchor.fm/s/e321b8b0/podcast/rss" // pressure suit podcast
 ];
 
 async function run() {
