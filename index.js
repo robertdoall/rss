@@ -26,7 +26,7 @@ const feedUrls = [
   "https://feeds.libsyn.com/106598/rss", // godcast
   "https://anchor.fm/s/b4c7199c/podcast/rss", // involution
   "https://audio.nobodyhasthe.biz/api/v1/channels/therealsmokepit/rss",
-  "https://audio.nobodyhasthe.biz/api/v1/channels/thegamerword/rss",
+  "https://odysee.com/$/rss/@TheGamerWord:d",
   "https://odysee.com/$/rss/@FizeekFriday:d", // odysee files are too big.... YIKES
   "https://odysee.com/$/rss/@LarryRidgeway:a", // Odysee files too big ...... yikes
   "https://feeds.feedburner.com/archive/littlewarspodcast", // OFTEN TIMES OUT 
