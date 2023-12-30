@@ -34,7 +34,7 @@ const feedUrls = [
   // "https://audio.nobodyhasthe.biz/api/v1/channels/amerikanercommunityradio/rss",
   // "https://audio.nobodyhasthe.biz/api/v1/channels/exodus_americanus/rss",
   "https://odysee.com/$/rss/@Thefinalstorm:f",
-  "https://odysee.com/$/rss/@John_Fashcroft:3"
+  "https://odysee.com/$/rss/@John_Fashcroft:3",
   "https://anchor.fm/s/e321b8b0/podcast/rss" // pressure suit podcast
 ];
 
